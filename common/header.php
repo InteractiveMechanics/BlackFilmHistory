@@ -36,7 +36,14 @@
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
 <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
-    <div class="container">
-    	<header>
-            ...
-        </header>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="branding"><?php echo link_to_home_page('regeneration<span>Conference</span>'); ?></div>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <?php echo public_nav_main(); ?>
+        </div>
+    </nav>

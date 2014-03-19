@@ -2,44 +2,35 @@
 
 footer {
 	border-top: 1px solid #EEE;
-	height: 104px;
+	padding: 40px 0;
 	font-size: 0.75em;
-	color: #AAA;
+	color: $iu-black;
 	position: relative;
-	overflow: hidden;
+    text-align: center;
 
+    img {
+        width: 305px;
+        background-size: 100%;
+        margin-bottom: 20px;
+        transition: 0.5s opacity;
+
+        &:hover {
+            opacity: 0.75;
+            text-decoration: none;
+        }
+    }
 	p {
-		padding: 35px 0;
 		margin: 0;
-	}
+        text-align: left;
+        
+        a {
+            font-weight: 700;
+            color: $iu-black;
 
-	.sponsors {
-		padding: 25px 0;
-		max-height: 104px;
-
-		img {
-			max-width: 100px;
-			max-height: 60px;
-			margin-left: 10px;
-		}
-	}
-}
-
-.footer-spacer {
-	height: 60px;
-}
-
-#starfish {
-	background: url(../images/starfish@2x.png) no-repeat;
-	background-size: 75%;
-	width: 208px;
-	height: 93px;
-	position: absolute;
-	left: -40px;
-	top: 10px;
-	z-index: -1;
-
-	@media #{$screen-xs} {
-		display: none;
+            &:hover {
+                color: $iu-black;
+                text-decoration: underline;
+            }
+        }
 	}
 }
