@@ -1,0 +1,60 @@
+// Partial: Header
+
+.alert-header {
+	text-align: center;
+	color: white;
+	padding: 4px 0;
+	font-size: 0.875em;
+
+	a {
+		color: white;
+		text-decoration: underline;
+	}
+}
+
+header {
+	height: 100px;
+	border-bottom: 1px solid #EEE;
+
+	.header-brand {
+		background: url(../images/logo@2x.png) no-repeat;
+		background-size: 100%;
+		width: 235px;
+		height: 55px;
+		display: block;
+		text-indent: -9999px;
+		margin: 22px 0;
+		float: left;
+	}
+	ul.list-inline {
+		margin: 0;
+		li {
+			padding-left: 8px;
+			padding-right: 8px;
+
+			a {
+				color: #333;
+				font-weight: 300;
+				font-size: 1.125em;
+				display: block;
+				padding: 40px 0;
+				border-bottom: 4px solid transparent;
+				transition: color 0.5s, border-bottom 0.5s;
+				line-height: 1;
+			}
+
+			&:hover {
+				a {
+					color: $som-red;
+					border-bottom: 4px solid #DDD;
+					text-decoration: none;
+				}
+			}
+			&.current-menu-item {
+				a {
+					color: $som-red;
+				}
+			}
+		}
+	}
+}

@@ -20,39 +20,23 @@
 
     <!-- Stylesheets -->
     <?php 
-    	queue_css_file('app');
-    	queue_css_file('bootstrap'); 
+    	queue_css_file('main');
+    	queue_css_file('lib/bootstrap.min'); 
    		echo head_css(); ?>
 
     <!-- Scripts -->
     <?php 
-	    queue_js_file('vendor/modernizr');
-	    queue_js_file('vendor/bootstrap.min');
-	    queue_js_url('http://code.jquery.com/jquery-1.10.2.min.js');
+	    queue_js_url('http://code.jquery.com/jquery-1.11.0.min.js');
+        queue_js_file('lib/bootstrap.min');
 	    queue_js_file('app');
 	    echo head_js(); ?>
 	    
-	<script type="text/javascript" src="//use.typekit.net/wht1oxi.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<script type="text/javascript" src="//use.typekit.net/tfe1hdv.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
 <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
     <div class="container">
-    	<?php if (is_current_url('')) : ?>
-    		<header class="banner banner-home" style="background: url(<?php echo url('/'); ?>files/theme_uploads/<?php echo get_theme_option('Main Header Background'); ?>)">
-    	<?php elseif (is_current_url('/items')) : ?>
-    		<header class="banner banner-home" style="background: url(<?php echo url('/'); ?>files/theme_uploads/<?php echo get_theme_option('Interviews Header Background'); ?>)">
-    	<?php elseif (is_current_url('/about_the_project') || is_current_url('/about')) : ?>
-    		<header class="banner banner-home" style="background: url(<?php echo url('/'); ?>files/theme_uploads/<?php echo get_theme_option('About Header Background'); ?>)">
-    	<?php elseif (is_current_url('/the_course') || is_current_url('/students')) : ?>
-    		<header class="banner banner-home" style="background: url(<?php echo url('/'); ?>files/theme_uploads/<?php echo get_theme_option('Course Header Background'); ?>)">
-    	<?php elseif (is_current_url('/resources')) : ?>
-    		<header class="banner banner-home" style="background: url(<?php echo url('/'); ?>files/theme_uploads/<?php echo get_theme_option('Resources Header Background'); ?>)">
-    	<?php else : ?>
-    		<header class="banner banner-home">
-    	<?php endif; ?>
-        	<a href="<?php echo url(''); ?>">	            
-	            <h1><?php echo option('site_title'); ?></h1>
-			</a>
+    	<header>
+            ...
         </header>
-        <div class="row">

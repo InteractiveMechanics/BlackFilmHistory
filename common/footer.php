@@ -1,6 +1,7 @@
 	</div>
 	<footer>
-	    <p><?php echo get_theme_option('Footer Text'); ?> &copy; <?php echo date('Y'); ?></p>
+        <img src="" alt="National Endowment for the Humanities" />
+	    <p><?php echo get_theme_option('Footer Text'); ?></p>
 	</footer>
 	<?php fire_plugin_hook('public_footer'); ?>
 </div> <!-- end .container -->

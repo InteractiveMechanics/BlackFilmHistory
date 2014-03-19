@@ -1,0 +1,35 @@
+// Partials: Typography
+
+html, body {
+	font-size: 100%;
+}
+
+h1, h2, h3, h4, h5, h6,
+p, ol, ul, li, div, 
+input, label {
+	font-family: $primary-font-face;
+}
+
+a {
+	font-weight: 700;
+}
+p, ul, ol {
+	font-size: 0.875em;
+	line-height: 1.75;
+}
+
+.quote {
+	padding: 40px 0 60px;
+
+	h2 {
+		font-size: 1.35em;
+		font-weight: 300;
+		line-height: 2;
+		font-family: Georgia;
+		font-style: italic;
+		text-align: left;
+	}
+	h5 {
+		font-style: italic;
+	}
+}

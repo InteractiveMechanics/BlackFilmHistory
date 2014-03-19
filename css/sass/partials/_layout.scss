@@ -1,0 +1,75 @@
+// Partial: Layout
+
+html,
+body {
+	min-height: 100%;
+}
+hr {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+.alert-header {
+	height: 30px;
+	width: 100%;
+
+	@media #{$screen-xs} {
+		display: none;
+	}
+}
+
+.page-header {
+	margin-top: 50px;
+
+	p {
+		width: 65%;
+
+		@media #{$screen-xs} {
+			width: auto;
+		}
+	}
+}
+
+.pullout {
+    position: fixed;
+    left: -15.625em; /*or width of your navigation panel*/
+    width: 15.625em; /*should match the above value*/
+    background: #2C3E50;
+    z-index: 9999;
+
+    ul {
+    	list-style: none;
+    	margin: 0;
+    	padding: 0;
+		li {
+			&.current_page_item {
+				a { color: white; }
+			}
+
+	    	a {
+				display: block;
+				border-bottom: 2px solid #34495D;
+				padding: 1em;
+
+				&:hover {
+					text-decoration: none;
+				}
+	    	}
+	    }
+    }
+}
+.menu-link {
+	color: #fff;
+	background: rgba(0, 0, 0, .1);
+	border-radius: 4px;
+	padding: .1em .4em .2em;
+	position: relative;
+	font-size: 1.625em;
+	top: 30px;
+
+	&:hover {
+		color: white;
+		text-decoration: none;
+		background: rgba(0, 0, 0, .25);
+	}
+}
