@@ -1,3 +1,4 @@
+    </div>
 	<footer>
         <div class="container">
             <div class="row">
@@ -11,6 +12,6 @@
         </div>
 	</footer>
 	<?php fire_plugin_hook('public_footer'); ?>
-</div> <!-- end .container -->
+</div> <!-- end .wrapper -->
 </body>
 </html>

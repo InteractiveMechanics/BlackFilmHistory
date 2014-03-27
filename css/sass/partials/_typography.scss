@@ -10,6 +10,43 @@ a {
 	font-weight: 700;
 }
 
-h1 {
-    font-family: $secondary-font-face;
+.content {
+    h1 {
+        font-family: $secondary-font-face;
+        font-size: 48px;
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+    p {
+        font-weight: 400;
+        line-height: 21px;
+    }
+}
+
+.header-label {
+    background: $iu-red;
+    padding: 10px 12px;
+    color: white;
+    font-family: $primary-font-face;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    box-shadow: 0 1px 4px rgba(0,0,0,.25);
+    display: block;
+    width: 300px;
+    margin: 0 auto 30px;
+    text-align: center;
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: -9px;
+        left: 50%;
+        width: 0;
+    	height: 0;
+    	border-top: 10px solid $iu-red;
+    	border-left: 15px solid transparent;
+    }
 }

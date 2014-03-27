@@ -1,43 +1,40 @@
-<?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')),'bodyclass' => 'item show')); ?>
-<?php include(physical_path_to('common/nav.php')); ?>
+<?php echo head(array('title' => metadata('item', array('Dublin Core', 'Title')), 'bodyclass' => 'items show')); ?>
 
-<div id="content" class="span3">
-    <?php $elements = item_type_elements(); ?>
-	<h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
-	<h3><?php echo $elements['Self-Given Occupation']; ?></h3>
-	<h3>
-	   <?php echo __('Conducted by'); ?> 
-	   <?php echo metadata('item', array('Dublin Core', 'Creator')); ?> 
-	   <?php echo __('on'); ?> 
-	   <?php echo metadata('item', array('Dublin Core', 'Date')); ?> 
-	   <?php echo __('at the'); ?> 
-	   <?php echo metadata('item', array('Dublin Core', 'Coverage')); ?>
-    </h3>
-	
-	<div class="description">
-		<?php echo metadata('item', array('Dublin Core', 'Description')); ?>
-	</div>
-	
-	<?php if (metadata('item', 'has tags')): ?>
-		<div class="tag-list">
-		    <?php echo __('Tags: '); ?><?php echo tag_string('item'); ?>
-		</div>
-	<?php endif; ?>
-	<hr/>
-	
-	<div class="interview">
-		<?php echo $elements['Interview']; ?>
-	</div>
-	
-	<?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
+<div class="container">
+    <h1><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
+    <div class="row">
+        <div class="col-sm-3">
+            <?php echo common('nav-item'); ?>
+        </div>
+        <div class="col-sm-9">
+            <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
+            <?php $transcription = metadata('item', array('Item Type Metadata', 'Transcription')) ?>
+            <ul class="nav nav-tabs">
+                <?php if ($transcription): ?>
+                    <li class="active"><a href="#transcript" data-toggle="tab">Transcript</a></li>
+                <?php endif; ?>
+                <li <?php if (!$transcription){ echo 'class="active"'; } ?>><a href="#information" data-toggle="tab">Information</a></li>
+            </ul>
+            <div class="tab-content">
+                <?php if ($transcription): ?>
+                <div class="tab-pane active" id="transcript">
+                    <?php echo metadata('item', array('Item Type Metadata', 'Transcription')); ?>
+                </div>
+                <?php endif; ?>
+                <div class="tab-pane <?php if (!$transcription){ echo 'active'; } ?>" id="information">
+                    <table class="table table-hover">
+                        <?php $collection = get_collection_for_item(); ?>
+                        <tr><td>Panel Info</td><td><?php echo metadata($collection, array('Dublin Core', 'Description')); ?></td></tr>
+                        <tr><td>Title</td><td><?php echo metadata('item', array('Dublin Core', 'Title')); ?></td></tr>
+                        <tr><td>Creator</td><td><?php echo metadata('item', array('Dublin Core', 'Creator')); ?></td></tr>
+                        <tr><td>Contributor</td><td><?php echo metadata('item', array('Dublin Core', 'Contributor')); ?></td></tr>
+                        <tr><td>Date</td><td><?php echo metadata('item', array('Dublin Core', 'Date')); ?></td></tr>
+                        <tr><td>Rights</td><td><?php echo metadata('item', array('Dublin Core', 'Rights')); ?></td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div id="download" class="span1">
-	<!-- The following returns all of the files associated with an item. -->
-	<?php if (metadata('item', 'has files')): ?>
-	<div class="download">
-	   <?php echo files_for_item(); ?>
-	</div>
 
-	<?php endif; ?>
-</div>
 <?php echo foot(); ?>

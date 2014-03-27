@@ -31,11 +31,46 @@ header {
         }
     }
 }
-nav {
+nav.navbar {
     height: 45px;
     background: $iu-black;
+    border: none;
+    border-radius: 0;
+    margin: 0;
 
     > .container {
         border-top: 1px solid lighten($iu-black, 15%);
+    }
+
+    .navbar-collapse {
+        padding: 0;
+    }
+    .navbar-nav {
+        li {
+            &:hover {
+                a {
+                    background: $iu-black;
+                    color: $iu-red;
+                }
+            }
+            &.active {
+                &:hover {
+                    a {
+                        background: $iu-black;
+                        color: white;
+                    }
+                }
+                a {
+                    background: $iu-black;
+                    color: white;
+                }
+            }
+            
+            a {
+                font-weight: 700;
+                padding-top: 14px;
+                font-family: $primary-font-face;
+            }
+        }
     }
 }

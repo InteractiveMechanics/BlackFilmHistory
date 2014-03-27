@@ -24,9 +24,95 @@ input[type="checkbox"].css-checkbox {
 .css-label {
   background-image: url(http://csscheckbox.com/checkboxes/web-two-style.png); }
 
+.carousel {
+  height: 1%;
+  margin: 30px 0 0;
+  overflow: hidden;
+  position: relative;
+  padding: 0 50px; }
+  .carousel .viewport {
+    height: 250px;
+    overflow: hidden;
+    position: relative; }
+  .carousel .buttons {
+    border-radius: 35px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 35px;
+    height: 35px;
+    color: #17151b;
+    font-weight: bold;
+    text-align: center;
+    line-height: 35px;
+    text-decoration: none;
+    font-size: 22px;
+    opacity: 0.35; }
+    .carousel .buttons:hover {
+      opacity: 0.75; }
+  .carousel .next {
+    right: 0;
+    left: auto;
+    top: 50%; }
+  .carousel .disable {
+    visibility: hidden; }
+  .carousel .overview {
+    list-style: none;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 240px;
+    left: 0;
+    top: 0; }
+    .carousel .overview li {
+      float: left;
+      margin: 0 20px 0 0;
+      height: 250px;
+      width: 250px; }
+      .carousel .overview li a {
+        display: block;
+        position: relative; }
+        .carousel .overview li a:hover .overlay {
+          opacity: .9; }
+        .carousel .overview li a:hover span {
+          background: transparent;
+          color: white; }
+      .carousel .overview li .overlay {
+        position: absolute;
+        z-index: 9;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        background: #ed1c24;
+        background: rgba(237, 28, 36, 0.75);
+        transition: all 0.5s; }
+      .carousel .overview li img {
+        width: 100%;
+        height: auto; }
+      .carousel .overview li span {
+        font-family: "proxima-nova", "Helvetica Neue", sans-serif;
+        position: absolute;
+        bottom: 0;
+        background: black;
+        background: rgba(0, 0, 0, 0.75);
+        padding: 6px 10px;
+        left: 0;
+        right: 0;
+        color: #AAA;
+        z-index: 10;
+        transition: all 0.5s; }
+
 html,
 body {
   min-height: 100%; }
+
+.content {
+  margin-top: 40px; }
+  #home .content {
+    margin-top: 0; }
 
 html, body {
   font-family: "proxima-nova", "Helvetica Neue", sans-serif;
@@ -36,8 +122,39 @@ html, body {
 a {
   font-weight: 700; }
 
-h1 {
-  font-family: "minion-pro", "Georgia", serif; }
+.content h1 {
+  font-family: "minion-pro", "Georgia", serif;
+  font-size: 48px;
+  font-style: italic;
+  margin-bottom: 20px; }
+.content p {
+  font-weight: 400;
+  line-height: 21px; }
+
+.header-label {
+  background: #ed1c24;
+  padding: 10px 12px;
+  color: white;
+  font-family: "proxima-nova", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  display: block;
+  width: 300px;
+  margin: 0 auto 30px;
+  text-align: center; }
+  .header-label:after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-top: 10px solid #ed1c24;
+    border-left: 15px solid transparent; }
 
 header {
   height: 75px;
@@ -62,15 +179,34 @@ header {
         color: #ed1c24;
         margin-left: 2px; }
 
-nav {
+nav.navbar {
   height: 45px;
-  background: #17151b; }
-  nav > .container {
+  background: #17151b;
+  border: none;
+  border-radius: 0;
+  margin: 0; }
+  nav.navbar > .container {
     border-top: 1px solid #3c3646; }
+  nav.navbar .navbar-collapse {
+    padding: 0; }
+  nav.navbar .navbar-nav li:hover a {
+    background: #17151b;
+    color: #ed1c24; }
+  nav.navbar .navbar-nav li.active:hover a {
+    background: #17151b;
+    color: white; }
+  nav.navbar .navbar-nav li.active a {
+    background: #17151b;
+    color: white; }
+  nav.navbar .navbar-nav li a {
+    font-weight: 700;
+    padding-top: 14px;
+    font-family: "proxima-nova", "Helvetica Neue", sans-serif; }
 
 footer {
   border-top: 1px solid #EEE;
   padding: 40px 0;
+  margin-top: 60px;
   font-size: 0.75em;
   color: #17151b;
   position: relative;
@@ -92,3 +228,71 @@ footer {
       footer p a:hover {
         color: #17151b;
         text-decoration: underline; }
+
+.sidebar ul.nav > li {
+  border-bottom: 1px solid #dedcd3;
+  border-right: 100px solid transparent;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #3c3646; }
+  .sidebar ul.nav > li:hover {
+    cursor: pointer;
+    color: #17151b; }
+  .sidebar ul.nav > li.expanded {
+    color: #17151b;
+    font-weight: 700; }
+    .sidebar ul.nav > li.expanded > ul {
+      display: block;
+      margin-right: -100px;
+      padding: 10px 0 10px 20px;
+      list-style: none; }
+  .sidebar ul.nav > li > ul {
+    display: none; }
+    .sidebar ul.nav > li > ul > li {
+      margin-bottom: 8px; }
+      .sidebar ul.nav > li > ul > li:last-child {
+        margin-bottom: 0; }
+      .sidebar ul.nav > li > ul > li.active a {
+        color: #ed1c24;
+        font-weight: 700; }
+      .sidebar ul.nav > li > ul > li a {
+        font-size: 12px;
+        color: #17151b;
+        font-weight: 400;
+        display: block; }
+        .sidebar ul.nav > li > ul > li a:hover {
+          color: #ed1c24;
+          text-decoration: none; }
+
+.homepage-hero {
+  height: 290px;
+  text-align: center;
+  background: #dedcd3; }
+  .homepage-hero h1 {
+    font-family: "minion-pro", "Georgia", serif;
+    font-size: 48px;
+    font-style: italic;
+    margin: 90px 0 15px; }
+  .homepage-hero h2 {
+    font-family: "proxima-nova", "Helvetica Neue", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+    color: #918d7b; }
+
+.homepage-slideshow {
+  background: #d3d0c4;
+  padding-bottom: 20px;
+  height: 350px; }
+  .homepage-slideshow .header-label {
+    margin-top: -20px; }
+
+.homepage-content {
+  margin-top: 50px; }
+  .homepage-content p {
+    font-family: "proxima-nova", "Helvetica Neue", sans-serif;
+    font-weight: 300; }
+    .homepage-content p a {
+      color: #ed1c24; }

@@ -4,3 +4,11 @@ html,
 body {
 	min-height: 100%;
 }
+
+.content {
+    margin-top: 40px;
+
+    #home & {
+        margin-top: 0;
+    }
+}
