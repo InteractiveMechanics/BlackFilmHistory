@@ -28,11 +28,20 @@
                         if (($collectionTitle === 'Conference' && $thisCollectionTitle !== 'Workshop') || 
                             ($collectionTitle === 'Workshop' && $thisCollectionTitle === 'Workshop')){
                             if (has_loop_records('items')){
-                                echo metadata('collection', array('Dublin Core', 'Title'));
+                                echo '<h3>' . metadata('collection', array('Dublin Core', 'Title')) . '</h3>';
                                 echo '<div class="row">';
                                 foreach (loop('items') as $item){
-                                    echo '<div class="col-sm-4">';
-                            	    echo link_to_item();
+                                    echo '<div class="col-xs-6 col-sm-6 col-md-4">';
+                                    echo '  <div class="item">';
+                                    echo '    <a href="' . record_url($item, null, true) . '">';
+                                    echo '      <div class="overlay"></div>';
+                                    $image = $item->Files;
+                                    if ($image) {
+                                        echo '<img src="' . file_display_url($image[0], 'original') . '" alt="' . metadata('item', array('Dublin Core', 'Title')) . '" />';
+                                    }
+                                    echo '      <span class="title">' . metadata('item', array('Dublin Core', 'Title')) . '';
+                                    echo '    </a>';
+                                    echo '  </div>';
                                     echo '</div>';
                             	}
                                 echo '</div>';

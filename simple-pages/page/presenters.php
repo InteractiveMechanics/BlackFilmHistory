@@ -20,26 +20,45 @@
                 $name = metadata($item, array('Dublin Core', 'Creator'));
                 $title = metadata($item, array('Dublin Core', 'Title'));
                 $url = record_url($item, null, true);
+                $multiple = false;
 
-                if (!in_array_r($name, $creators)){
-                    $creators[$id] = array(
-                        'name' => $name,
-                        'titles' => array(
-                            'title' => array(
-                                'title_name' => $title,
-                                'url' => $url
-                            )
-                        )
-                    );
+                if (strpos($name, ', ') !== FALSE){
+                    $names = preg_split('/, /', $name);
+                    $multiple == true;
+
+                    foreach ($names as $n){
+                        while (list($var, $val) = each($creators)) {
+                            if ($creators[$var]['name'] == $n) {
+                                $new_title = 
+                                    array(
+                                        'title_name' => $title,
+                                        'url' => $url
+                                    );
+                                array_push($creators[$var]['titles'], $new_title);
+                            }
+                        }
+                    }
                 } else {
-                    while (list($var, $val) = each($creators)) {
-                        if ($creators[$var]['name'] == $name) {
-                            $new_title = 
-                                array(
+                    if (!in_array_r($name, $creators)){
+                        $creators[$id] = array(
+                            'name' => $name,
+                            'titles' => array(
+                                'title' => array(
                                     'title_name' => $title,
                                     'url' => $url
-                                );
-                            array_push($creators[$var]['titles'], $new_title);
+                                )
+                            )
+                        );
+                    } else {
+                        while (list($var, $val) = each($creators)) {
+                            if ($creators[$var]['name'] == $name) {
+                                $new_title = 
+                                    array(
+                                        'title_name' => $title,
+                                        'url' => $url
+                                    );
+                                array_push($creators[$var]['titles'], $new_title);
+                            }
                         }
                     }
                 }
@@ -48,20 +67,19 @@
         	}
         }
 
-        //print_r($name_list);
-        //echo '<br><br>';
-        //print_r($creators);
-
         if ($creators != ''){
             echo '<div class="row">';
             foreach ($creators as $creator){
                 echo '<div class="col-sm-6 col-md-4">';
-                echo '  <h3>'. $creator['name'] .'</h3>';
-                echo '  <ul>';
+                echo '  <div class="presenter">';
+                echo '    <h3>'. $creator['name'] .'</h3>';
+                echo '    <h5>Panels and Talks</h5>';
+                echo '    <ul>';
                 while (list($var, $val) = each($creator['titles'])) {
-                    echo '    <li><a href="'. $creator['titles'][$var]['url'] .'">'. $creator['titles'][$var]['title_name'] .'</a></li>';
+                    echo '<li><a href="'. $creator['titles'][$var]['url'] .'">'. $creator['titles'][$var]['title_name'] .'</a></li>';
                 }
-                echo '  </ul>';
+                echo '    </ul>';
+                echo '  </div>';
                 echo '</div>';
             }
             echo '</div>';

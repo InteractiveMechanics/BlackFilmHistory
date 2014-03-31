@@ -1,0 +1,40 @@
+.presenter {
+    border: 1px solid #F1F2F2;
+    padding: 20px;
+    min-height: 175px;
+    margin-bottom: 20px;
+    transition: 0.5s all;
+
+    @media #{$screen-sm} {
+        min-height: 210px;
+    }
+    @media #{$screen-xs} {
+        min-height: 0;
+    }
+
+    &:hover {
+        background: #F1F2F2;
+    }
+
+    h3 {
+        margin: 0 0 10px;
+    }
+    h5 {
+        margin: 0 0 6px;
+        font-family: $secondary-font-face;
+        font-size: 16px;
+        font-style: italic;
+    }
+    ul {
+        li {
+            a {
+                color: $iu-black;          
+                display: block;
+
+                &:hover {
+                    color: $iu-red;
+                }
+            }
+        }
+    }
+}

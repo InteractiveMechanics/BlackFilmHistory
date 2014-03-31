@@ -1,8 +1,9 @@
 .sidebar {
+    margin-bottom: 20px;
+
     ul.nav {
         > li {
             border-bottom: 1px solid $iu-beige;
-            border-right: 100px solid transparent;
             padding: 10px 0;
             font-size: 14px;
             color: lighten($iu-black, 15%);
@@ -17,7 +18,6 @@
 
                 > ul {
                     display: block;
-                    margin-right: -100px;
                     padding: 10px 0 10px 20px;
                     list-style: none;
                 }
