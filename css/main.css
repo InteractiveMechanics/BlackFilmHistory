@@ -508,12 +508,12 @@ footer {
 .presenter {
   border: 1px solid #F1F2F2;
   padding: 20px;
-  min-height: 200px;
   margin-bottom: 20px;
-  transition: 0.5s all; }
+  transition: 0.5s all;
+  min-height: 140px; }
   @media (min-width: 768px) and (max-width: 991px) {
     .presenter {
-      min-height: 210px; } }
+      min-height: 0; } }
   @media (max-width: 767px) {
     .presenter {
       min-height: 0; } }

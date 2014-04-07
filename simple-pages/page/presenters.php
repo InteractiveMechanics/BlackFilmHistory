@@ -19,6 +19,7 @@
             foreach (loop('items') as $item){
                 $name = metadata($item, array('Dublin Core', 'Creator'));
                 $title = metadata($item, array('Dublin Core', 'Title'));
+                $creds = metadata($item, array('Dublin Core', 'Alternative Title'));
                 $url = record_url($item, null, true);
 
                 if (strpos($name, ',') !== FALSE){
@@ -41,6 +42,7 @@
                         if ($found === false) {
                             $creators[$id] = array(
                                 'name' => $n,
+                                'creds' => $creds,
                                 'titles' => array(
                                     'title' => array(
                                         'title_name' => $title,
@@ -55,6 +57,7 @@
                     if (!in_array_r($name, $creators)){
                         $creators[$id] = array(
                             'name' => $name,
+                            'creds' => $creds,
                             'titles' => array(
                                 'title' => array(
                                     'title_name' => $title,
@@ -83,9 +86,12 @@
         if ($creators != ''){
             echo '<div class="row">';
             foreach ($creators as $creator){
-                echo '<div class="col-sm-6 col-md-4">';
+                echo '<div class="col-md-6">';
                 echo '  <div class="presenter">';
                 echo '    <h3>'. $creator['name'] .'</h3>';
+                if ($creator['creds'] != null) {
+                    echo '    <p>'. $creator['creds'] .'</p>';
+                }
                 echo '    <h5>Panels and Talks</h5>';
                 echo '    <ul>';
                 while (list($var, $val) = each($creator['titles'])) {
