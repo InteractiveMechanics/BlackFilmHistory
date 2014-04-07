@@ -21,11 +21,11 @@
                     <?php 
                         $record = get_record_by_id($searchText['record_type'], $searchText['record_id']);
                         $collection = get_collection_for_item($record);
-                        $collectionTitle = metadata($collection, array('Dublin Core', 'Title'));
+                        if ($collection) { $collectionTitle = metadata($collection, array('Dublin Core', 'Title')); }
                     ?>
                     <tr>
                         <td><?php echo $searchRecordTypes[$searchText['record_type']]; ?></td>
-                        <td><?php echo $collectionTitle; ?></td>
+                        <td><?php if ($collection) { echo $collectionTitle; } ?></td>
                         <td><a href="<?php echo record_url($record, 'show'); ?>"><?php echo $searchText['title'] ? $searchText['title'] : '[Unknown]'; ?></a></td>
                     </tr>
                 <?php endforeach; ?>

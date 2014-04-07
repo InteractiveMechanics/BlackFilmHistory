@@ -5,7 +5,9 @@ html, body {
 	font-size: 62.5%;
     font-size: 1.4rem;
 }
-
+* {
+    font-family: $primary-font-face;
+}
 a {
 	font-weight: 700;
 }
@@ -30,6 +32,7 @@ a {
         font-size: 21px;
         font-weight: 700;
         color: $iu-darkbeige;
+        margin-top: 10px;
     }
     p {
         font-weight: 400;
@@ -62,5 +65,10 @@ a {
     	height: 0;
     	border-top: 10px solid $iu-red;
     	border-left: 15px solid transparent;
+    }
+
+    @media #{$screen-xs} {
+        font-size: 12px;
+        width: 100%;
     }
 }

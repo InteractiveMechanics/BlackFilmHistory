@@ -10,6 +10,14 @@
         font-size: 48px;
         font-style: italic;
         margin: 90px 0 15px;
+
+        strong {
+            font-family: $secondary-font-face;
+        }
+
+        @media #{$screen-xs} {
+            margin: 25px 0 15px;
+        }
     }
     h2 {
         font-family: $primary-font-face;

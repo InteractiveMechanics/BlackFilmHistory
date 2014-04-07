@@ -1,7 +1,7 @@
 .presenter {
     border: 1px solid #F1F2F2;
     padding: 20px;
-    min-height: 175px;
+    min-height: 200px;
     margin-bottom: 20px;
     transition: 0.5s all;
 
@@ -17,15 +17,17 @@
     }
 
     h3 {
-        margin: 0 0 10px;
+        margin: 0 0 6px;
     }
     h5 {
-        margin: 0 0 6px;
+        margin: 0 0 10px;
         font-family: $secondary-font-face;
         font-size: 16px;
         font-style: italic;
     }
     ul {
+        margin-bottom: 0;
+
         li {
             a {
                 color: $iu-black;          

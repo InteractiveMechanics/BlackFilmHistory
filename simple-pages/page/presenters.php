@@ -20,22 +20,35 @@
                 $name = metadata($item, array('Dublin Core', 'Creator'));
                 $title = metadata($item, array('Dublin Core', 'Title'));
                 $url = record_url($item, null, true);
-                $multiple = false;
 
-                if (strpos($name, ', ') !== FALSE){
-                    $names = preg_split('/, /', $name);
-                    $multiple == true;
+                if (strpos($name, ',') !== FALSE){
+                    $names = array_map('trim', explode(',', $name));
 
                     foreach ($names as $n){
-                        while (list($var, $val) = each($creators)) {
-                            if ($creators[$var]['name'] == $n) {
+                        $found = false;
+
+                        foreach ($creators as $key => $val) {
+                            if ($creators[$key]['name'] == $n) {
                                 $new_title = 
                                     array(
                                         'title_name' => $title,
                                         'url' => $url
                                     );
-                                array_push($creators[$var]['titles'], $new_title);
+                                array_push($creators[$key]['titles'], $new_title);
+                                $found = true;
                             }
+                        }
+                        if ($found === false) {
+                            $creators[$id] = array(
+                                'name' => $n,
+                                'titles' => array(
+                                    'title' => array(
+                                        'title_name' => $title,
+                                        'url' => $url
+                                    )
+                                )
+                            );
+                            $id++;
                         }
                     }
                 } else {
@@ -61,10 +74,10 @@
                             }
                         }
                     }
+                    $id++;
                 }
-
-                $id++;
         	}
+            sort($creators);
         }
 
         if ($creators != ''){

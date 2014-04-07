@@ -31,7 +31,7 @@
                                 echo '<h3>' . metadata('collection', array('Dublin Core', 'Title')) . '</h3>';
                                 echo '<div class="row">';
                                 foreach (loop('items') as $item){
-                                    echo '<div class="col-xs-6 col-sm-6 col-md-4">';
+                                    echo '<div class="col-sm-6 col-md-4">';
                                     echo '  <div class="item">';
                                     echo '    <a href="' . record_url($item, null, true) . '">';
                                     echo '      <div class="overlay"></div>';
