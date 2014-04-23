@@ -6,7 +6,7 @@
 
 <nav class="sidebar">
     <?php
-        $collections = get_records('collection', array(), 99);
+        $collections = get_records('collection', array('sort_field'=>'id'), 99);
         set_loop_records('collections', $collections);
         if (has_loop_records('collections')){
             foreach (loop('collections') as $collection){
